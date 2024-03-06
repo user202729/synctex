@@ -260,7 +260,7 @@ int synctex_return(int status) {
                 if (strcmp(p, "?") == 0) {
                     puts("q to quit");
                     puts("e page:x:y to edit");
-                    puts("v line:column:input to view");
+                    puts("v line:column:[page_hint:]input to view");
                     continue;
                 }
                 if (strcmp(p, "q") == 0) {
@@ -471,7 +471,7 @@ char * synctex_view_i(char * arg) {
     return arg;
 }
 
-/* "usage: synctex view -i line:column:input -o output [-d directory] [-x viewer-command] [-h before/offset:middle/after]\n" */
+/* "usage: synctex view -i line:column:[page_hint:]input -o output [-d directory] [-x viewer-command] [-h before/offset:middle/after]\n" */
 int synctex_view(int argc, char *argv[]) {
     /* required */
     int i = 0;
@@ -999,7 +999,7 @@ void synctex_help_options(const char * error,...) {
         "   Enter the interactive mode, where `synctex` does not quit\n"
         "   when synchronization is done. Known commands are shortcuts of\n"
         "   standard arguments:\n"
-        "       v line:column:input\n"
+        "       v line:column:[page_hint:]input\n"
         "   to synchronize forward,\n"
         "       e page:x_offset:y_offset\n"
         "   to synchronize backwards,\n"
